@@ -2,6 +2,7 @@ _Задача №4_
 
 Проведите рефакторинг, исправьте баги и продокументируйте в стиле PHPDoc код, приведённый ниже (таблица users здесь аналогична таблице users из задачи №1).
 Примечание: код написан исключительно в тестовых целях, это не "жизненный пример" :)
+
 function load_users_data($user_ids) {
     $user_ids = explode(',', $user_ids);
     foreach ($user_ids as $user_id) {
@@ -10,10 +11,11 @@ function load_users_data($user_ids) {
         while($obj = $sql->fetch_object()){
             $data[$user_id] = $obj->name;
         }
-        mysqli_close($db);
-    }
-    return $data;
+       mysqli_close($db);
+   }
+   return $data;
 }
+
 // Как правило, в $_GET['user_ids'] должна приходить строка
 // с номерами пользователей через запятую, например: 1,2,17,48
 $data = load_users_data($_GET['user_ids']);
