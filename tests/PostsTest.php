@@ -11,7 +11,7 @@ final class PostsTest extends TestCase
     public function testCreatePost(): void
     {   
         $user = new User('Jhon', 'Uick');
-        $post = new Post(0, 'title1', 'body1', $user);
+        $post = new Post('title1', 'body1', $user);
         $this->assertEquals(1, 1);
     }
 
@@ -19,21 +19,21 @@ final class PostsTest extends TestCase
     public function testPostTitle(): void
     {   
         $user = new User('Jhon', 'Uick');
-        $post = new Post(0, 'title1', 'body1', $user);
+        $post = new Post('title1', 'body1', $user);
         $this->assertEquals($post->getTitle(), 'title1');
     }
 
     public function testPostBody(): void
     {   
         $user = new User('Jhon', 'Uick');
-        $post = new Post(0, 'title1', 'body1', $user);
+        $post = new Post('title1', 'body1', $user);
         $this->assertEquals($post->getBody(), 'body1');
     }
 
     public function testAuthorPost(): void
     {   
         $user = new User('Jhon', 'Uick');
-        $post = new Post(0, 'title1', 'body1', $user);
+        $post = new Post('title1', 'body1', $user);
         $this->assertEquals($post->getAuthor()->getFullName(), 'Jhon Uick');
     }
 
@@ -41,7 +41,7 @@ final class PostsTest extends TestCase
     {   
         $user = new User('Jhon', 'Uick');
         $newUser = new User('Not Jhon', 'Uick');
-        $post = new Post(0, 'title1', 'body1', $user);
+        $post = new Post('title1', 'body1', $user);
         $post->setAuthor($newUser);
         $this->assertEquals($post->getAuthor()->getFullName(), 'Not Jhon Uick');
     }

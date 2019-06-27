@@ -33,12 +33,17 @@ class User{
     }
 
     function deletePost(Post $postDelete){
-        foreach($this->postsArray as $key=>$post){
-            if($post->id == $postDelete->id){
-                 unset($this->postsArray[$key]);
-            }
-            $this->postsArray = array_values($this->postsArray);
-        }//end foreach
+        
+        /**
+         * getting index in array
+         */
+        $key = array_search( $postDelete, $this->postsArray); 
+        
+        if($key !== false)
+            unset($this->postsArray[$key]);
+
+        $this->postsArray = array_values($this->postsArray);
+
     }
     
 

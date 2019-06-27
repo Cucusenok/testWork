@@ -17,8 +17,7 @@ class Post{
      */
     public $id;
 
-    function __construct(int $id, string $title, string $body, User $author){
-        $this->id = $id;
+    function __construct(string $title, string $body, User $author){
         $this->title = $title;
         $this->body = $body;
         $this->author = $author;

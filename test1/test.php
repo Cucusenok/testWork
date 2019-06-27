@@ -12,3 +12,11 @@ $query  = "SELECT user_id, COUNT(user_id)
                         (SELECT id FROM users 
                                 WHERE birth_date >=$ageStart AND birth_date <= $ageEnd AND gender = 2) 
           GROUP BY user_id";
+
+
+$queryWithJoins = "SELECT user_id, COUNT(user_id)
+     FROM phone_numbers 
+            INNER JOIN users 
+               ON   users.id = phone_numbers.user_id AND birth_date >=$ageStart AND birth_date <= $ageEnd AND gender = 2
+     GROUP BY user_id";
+             
