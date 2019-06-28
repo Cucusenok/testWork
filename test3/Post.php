@@ -11,11 +11,6 @@ class Post{
      * @var User
      */
     private $author;
-    
-     /**
-     * @var int
-     */
-    public $id;
 
     function __construct(string $title, string $body, User $author){
         $this->title = $title;
@@ -46,12 +41,18 @@ class Post{
 
     function getAuthor():User
     {
-        return $this->author;
+        if($this->author)
+            return $this->author;
     }
 
     function setAuthor(User $newAuthor):void
     {
         $this->author = $newAuthor;
+    }
+
+    function deleteAuthor():void
+    {
+        $this->author = false;
     }
 
 

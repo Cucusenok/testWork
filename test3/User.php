@@ -40,7 +40,10 @@ class User{
         $key = array_search( $postDelete, $this->postsArray); 
         
         if($key !== false)
+        {
             unset($this->postsArray[$key]);
+            $postDelete->deleteAuthor();
+        }
 
         $this->postsArray = array_values($this->postsArray);
 
